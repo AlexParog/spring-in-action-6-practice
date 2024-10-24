@@ -1,0 +1,5 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* число колонок, например, 3 */
+    gap: 10px; /* расстояние между колонками */
+}
