@@ -1,23 +1,23 @@
 package com.springinaction.parogcloud.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
 /**
  * Класс, представляющий ингредиенты тако.
  */
 @Data
+@Table
+@AllArgsConstructor
 public class Ingredient {
+    @Id
     private final String id;
     private final String name;
     private final Type type;
 
-    public Ingredient(String id, String name, Type type) {
-        this.id = id;
-        this.name = name;
-        this.type = type;
-    }
-
     public enum Type {
-        WRAR, PROTEIN, VEGGIES, CHEESE, SAUCE
+        WRAP, PROTEIN, VEGGIES, CHEESE, SAUCE
     }
 }
