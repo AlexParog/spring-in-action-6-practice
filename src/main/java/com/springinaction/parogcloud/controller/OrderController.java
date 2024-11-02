@@ -1,6 +1,7 @@
 package com.springinaction.parogcloud.controller;
 
 import com.springinaction.parogcloud.entity.TacoOrder;
+import com.springinaction.parogcloud.repository.OrderRepository;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,12 @@ import org.springframework.web.bind.support.SessionStatus;
 @SessionAttributes("tacoOrder")
 public class OrderController {
 
+    private final OrderRepository orderRepository;
+
+    public OrderController(OrderRepository orderRepository) {
+        this.orderRepository = orderRepository;
+    }
+
     @GetMapping("/current")
     public String orderForm() {
         return "orderForm";
@@ -30,6 +37,7 @@ public class OrderController {
         }
 
         log.info("Order submitted: {}", order);
+        orderRepository.save(order);
         // отметка завершенного сеанса
         // очистка атрибутов
         sessionStatus.setComplete();
