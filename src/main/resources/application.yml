@@ -1,12 +1,15 @@
 spring:
-#  sql:
-#    schema:
-#      locations: classpath:/schema.sql
-#    data:
-#      locations: classpath:/data.sql
-  jpa:
-    show-sql: true
+  sql:
+    schema:
+      locations: classpath:/schema.sql
+    data:
+      locations: classpath:/data.sql
   datasource:
-    initialization-mode: embedded
-    generate-unique-name: false
-    name: parogcloud
+    initialization-mode: always
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    datasource:
+      name: parogCloud
+      generate-unique-name: false
