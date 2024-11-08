@@ -1,0 +1,12 @@
+spring:
+#  sql:
+#    schema:
+#      locations: classpath:/schema.sql
+#    data:
+#      locations: classpath:/data.sql
+  jpa:
+    show-sql: true
+  datasource:
+    initialization-mode: embedded
+    generate-unique-name: false
+    name: parogcloud
